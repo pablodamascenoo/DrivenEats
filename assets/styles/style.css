@@ -81,11 +81,20 @@ header{
 }
 
 .food {
+    position: relative;
     width: 172px;
     height: 216px;
     border-radius: 9px;
     background-color: #fff;
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+}
+
+ion-icon{
+    position: absolute;
+    right: 14px;
+    bottom: 18px;
+    color: #32B72F;
+    display: none;
 }
 
 .food_content > h5:first-of-type{

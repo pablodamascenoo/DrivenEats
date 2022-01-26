@@ -25,29 +25,32 @@
 
         <div class="order">
             <h2>Primeiro, seu prato</h2>
-            <div class="food_row">
-                <div class="food">
+            <div class="food_row" id="dishes">
+                <div class="food" id="frango" onclick="select('frango')">
                     <div class="food_content">
                         <img src="assets/images/frango_yin_yang 1.svg" alt="Prato Principal">
                         <h5>Frango Yin Yang</h5>
                         <p>Um pouco de batata, um pouco de salada</p>
                         <h5>R$ 14,90</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="food">
+                <div class="food" id="carne" onclick="select('carne')">
                     <div class="food_content">
                         <img src="assets/images/frango_yin_yang 1.svg" alt="Prato Principal">
                         <h5>Frango Yin Yang</h5>
                         <p>Um pouco de batata, um pouco de salada</p>
                         <h5>R$ 14,90</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="food">
+                <div class="food" id="peixe" onclick="select('peixe')">
                     <div class="food_content">
                         <img src="assets/images/frango_yin_yang 1.svg" alt="Prato Principal">
                         <h5>Frango Yin Yang</h5>
                         <p>Um pouco de batata, um pouco de salada</p>
                         <h5>R$ 14,90</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
             </div>
@@ -55,29 +58,32 @@
 
         <div class="order">
             <h2>Agora, sua bebida</h2>
-            <div class="food_row">
-                <div class="food">
+            <div class="food_row" id="drinks">
+                <div class="food" id="coca" onclick="select('coca')">
                     <div class="food_content">
                         <img src="assets/images/coquinha_gelada 1.svg" alt="Prato Principal">
                         <h5>Lata Coca-Cola</h5>
                         <p>Refrigerante em lata de 350ml</p>
                         <h5>R$ 3,50</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="food">
+                <div class="food" id="guarana" onclick="select('guarana')">
                         <div class="food_content">
                         <img src="assets/images/coquinha_gelada 1.svg" alt="Prato Principal">
                         <h5>Lata Coca-Cola</h5>
                         <p>Refrigerante em lata de 350ml</p>
                         <h5>R$ 3,50</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="food">
+                <div class="food" id="agua" onclick="select('agua')">
                         <div class="food_content">
                         <img src="assets/images/coquinha_gelada 1.svg" alt="Prato Principal">
                         <h5>Lata Coca-Cola</h5>
                         <p>Refrigerante em lata de 350ml</p>
                         <h5>R$ 3,50</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
             </div>
@@ -85,29 +91,32 @@
 
         <div class="order">
             <h2>Por fim, sua sobremesa</h2>
-            <div class="food_row">
-                <div class="food">
+            <div class="food_row" id="desserts">
+                <div class="food" id="pudim" onclick="select('pudim')">
                     <div class="food_content">
                         <img src="assets/images/pudim 1.svg" alt="Sobremesa">
                         <h5>Pudim</h5>
                         <p>Apenas pudim</p>
                         <h5>R$ 5,90</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="food">
+                <div class="food" id="mousse" onclick="select('mousse')">
                     <div class="food_content">
                         <img src="assets/images/pudim 1.svg" alt="Sobremesa">
                         <h5>Pudim</h5>
                         <p>Apenas pudim</p>
                         <h5>R$ 5,90</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="food">
+                <div class="food" id="cocada" onclick="select('cocada')">
                     <div class="food_content">
                         <img src="assets/images/pudim 1.svg" alt="Sobremesa">
                         <h5>Pudim</h5>
                         <p>Apenas pudim</p>
                         <h5>R$ 5,90</h5>
+                        <ion-icon name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
             </div>
@@ -123,5 +132,8 @@
         </button>
     </footer>
 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
