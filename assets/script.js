@@ -93,7 +93,7 @@ function confirm_screen(){
     total = total.toFixed(2)
     total = total.replace(/\./, ",")
 
-    text_list[3].lastElementChild.innerText = total
+    text_list[3].lastElementChild.innerText = "R$ "+total
     
 }
 
