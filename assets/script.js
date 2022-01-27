@@ -26,7 +26,8 @@ function make_order(){
     let message = "Olá, gostaria de fazer o pedido\n- Prato: "+ dishes+"\n- Bebida: "+ drinks+ "\n- Sobremesa: "+ desserts+ "\nTotal: R$ "+ total.toFixed(2)
     message = encodeURIComponent(message)
 
-    window.location.replace("https://wa.me/5584991175905?text="+message);
+    let number = "21912345678"
+    window.location.replace("https://wa.me/55"+ number +"?text="+message);
 
 }
 

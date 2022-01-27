@@ -6,6 +6,11 @@ body{
     background: #E5E5E5;
 }
 
+img{
+    height: 87px;
+    width: 144px;
+    border-radius: 4px;
+}
 
 /* Text  */
 h4, h5, p, button{
