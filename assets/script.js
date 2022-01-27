@@ -38,10 +38,12 @@ function toggle_button(){
     for (i in dict){
         if(dict[i] == ""){
             button.disabled = true
+            button.innerText = "Selecione os 3 itens para fechar o pedido"
             return false
         }
     }
     button.disabled = false
+    button.innerText = "Fechar pedido"
     return true
 }
 
