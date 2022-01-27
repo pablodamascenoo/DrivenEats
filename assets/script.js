@@ -1,16 +1,30 @@
 
 
-var selected = ""
+let selected = ""
 
-var dict = {
+let dict = {
     dishes: "",
     drinks: "",
     desserts: "",
 }
 
+function toggle_button(){
+
+    const button = document.querySelector('button')
+
+    for (i in dict){
+        if(dict[i] == ""){
+            button.disabled = true
+            return false
+        }
+    }
+    button.disabled = false
+    return true
+}
+
 function change_options(obj){
 
-    for (var i in dict){
+    for (let i in dict){
         if (document.getElementById(obj).parentElement.id == i){
             dict[i] = obj
         }
@@ -20,7 +34,7 @@ function change_options(obj){
 
 function check_options(obj){
     
-    for (var i in dict){
+    for (let i in dict){
         if (document.getElementById(obj).parentElement.id == i){
             if(dict[i] != ""){
                 return true
@@ -33,20 +47,20 @@ function check_options(obj){
 function select(obj){
 
     if(dict[document.getElementById(obj).parentElement.id] == obj){
-        var obj1 = document.getElementById(obj)
+        let obj1 = document.getElementById(obj)
         obj1.lastElementChild.lastElementChild.style.display = "none"
         obj1.style.boxShadow = "none" 
-        for (var i in dict){
+        for (let i in dict){
             if(document.getElementById(obj).parentElement.id == i){
                 dict[i] = ""
             }
         }
         selected = ""
-        console.log(dict)
+        toggle_button()
     }
 
-    else if(selected != obj && selected != "" && check_options(obj)){
-        var obj1 = document.getElementById(dict[document.getElementById(obj).parentElement.id])
+    else if(selected != obj && check_options(obj)){
+        let obj1 = document.getElementById(dict[document.getElementById(obj).parentElement.id])
         change_options(obj)
         obj1.style.boxShadow = "none"
         obj1.lastElementChild.lastElementChild.style.display = "none"
@@ -54,15 +68,14 @@ function select(obj){
         obj1.lastElementChild.lastElementChild.style.display = "block"
         obj1.style.boxShadow = "0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F"
         selected = obj
-        console.log(dict)
     }
 
     else {
         change_options(obj)
-        console.log(dict)
-        var obj1 = document.getElementById(obj)
+        let obj1 = document.getElementById(obj)
         obj1.lastElementChild.lastElementChild.style.display = "block"
         obj1.style.boxShadow = "0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F"
+        toggle_button()
         selected = obj
     }
     

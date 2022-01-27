@@ -140,3 +140,8 @@ footer > button {
     border-radius: 50px;
     background: #CBCBCB;
 }
+
+footer > button:enabled{
+    background: #32B72F;
+    cursor: pointer;
+}
