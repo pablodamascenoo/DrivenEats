@@ -10,15 +10,18 @@ function make_order(){
     const regex = /\-?\d+\.\d+/g
 
     let dishes= document.getElementById(dict.dishes).lastElementChild.getElementsByTagName('h5')
-    let dishes_price = parseFloat(dishes[1].innerText.match(regex))
+    let dishes_price = dishes[1].innerText.replace(/,/, '.')
+    dishes_price = parseFloat(dishes_price.match(regex))
     dishes = dishes[0].innerText
 
     let drinks = document.getElementById(dict.drinks).lastElementChild.getElementsByTagName('h5')
-    let drinks_price = parseFloat(drinks[1].innerText.match(regex))
+    let drinks_price = drinks[1].innerText.replace(/,/, '.')
+    drinks_price = parseFloat(drinks_price.match(regex))
     drinks = drinks[0].innerText
 
     let desserts = document.getElementById(dict.desserts).lastElementChild.getElementsByTagName('h5')
-    let desserts_price = parseFloat(desserts[1].innerText.match(regex))
+    let desserts_price = desserts[1].innerText.replace(/,/, '.')
+    desserts_price = parseFloat(desserts_price.match(regex))
     desserts = desserts[0].innerText
 
     let total = dishes_price+drinks_price+desserts_price
@@ -26,7 +29,7 @@ function make_order(){
     let message = "Olá, gostaria de fazer o pedido\n- Prato: "+ dishes+"\n- Bebida: "+ drinks+ "\n- Sobremesa: "+ desserts+ "\nTotal: R$ "+ total.toFixed(2)
     message = encodeURIComponent(message)
 
-    let number = "21912345678"
+    let number = "84981517034"
     window.location.replace("https://wa.me/55"+ number +"?text="+message);
 
 }
