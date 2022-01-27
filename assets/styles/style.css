@@ -13,7 +13,7 @@ img{
 }
 
 /* Text  */
-h4, h5, p, button{
+h3, h4, h5, p, button{
     font-family: 'Roboto', sans-serif;
 }
 
@@ -35,6 +35,10 @@ h4{
 h2{
     font-size: 26px;
     font-weight: 400;
+}
+
+h3{
+    font-size: 22px;
 }
 
 header{
@@ -121,6 +125,72 @@ ion-icon{
 
 .food_content{
     margin: 18px 11px 13px 14px;
+}
+
+.confirm-screen{
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-green-box {
+    color: white;
+    width: 90%;
+    background: #50D074;
+    /* gap: 15px; */
+    border-radius: 9px;
+    max-height: inherit;
+}
+
+.confirm-content{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.confirm-content > h3{
+    text-align: center;
+    font-weight: 700;
+}
+
+
+.confirm-content-text{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.confirm-content-text:last-of-type{
+    font-weight: 700;
+}
+
+.confirm-content-button{
+    background-color: #fff;
+    font-family: 'Roboto';
+    font-size: 22px;
+    font-weight: 700;
+    color: #50D074;
+    width: 85%;
+    height: 52px;
+    border-radius: 100px;
+    border: none;
+    margin: 15px auto 0 auto;
+}
+
+.cancel-button{
+    background-color: transparent;
+    font-family: 'Roboto';
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFF;
+    border: none;
 }
 
 footer{
