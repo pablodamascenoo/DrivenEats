@@ -129,13 +129,13 @@ ion-icon{
 
 .confirm-screen{
     z-index: 100;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     top: 0;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.9);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -151,6 +151,7 @@ ion-icon{
 
 .confirm-content{
     margin: 15px;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
 }
@@ -188,6 +189,7 @@ ion-icon{
     background-color: transparent;
     font-family: 'Roboto';
     font-size: 22px;
+    height: 52px;
     font-weight: 700;
     color: #FFF;
     border: none;

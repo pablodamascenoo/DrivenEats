@@ -6,7 +6,20 @@ let dict = {
     desserts: "",
 }
 
-function make_order(){
+
+function cancel_order(){
+
+    let confirm = document.getElementsByClassName("confirm-screen")[0]
+
+    confirm.style.display = "none"
+
+    let scroll = document.getElementsByTagName("body")[0]
+    scroll.style.overflowY = "initial"
+
+}
+
+function get_order(){
+
     const regex = /\-?\d+\.\d+/g
 
     let dishes= document.getElementById(dict.dishes).lastElementChild.getElementsByTagName('h5')
@@ -24,9 +37,46 @@ function make_order(){
     desserts_price = parseFloat(desserts_price.match(regex))
     desserts = desserts[0].innerText
 
-    let total = dishes_price+drinks_price+desserts_price
+    let food = {
+        dishes: dishes,
+        drinks: drinks,
+        desserts: desserts
+    }
 
-    let message = "Olá, gostaria de fazer o pedido\n- Prato: "+ dishes+"\n- Bebida: "+ drinks+ "\n- Sobremesa: "+ desserts+ "\nTotal: R$ "+ total.toFixed(2)
+    let price = {
+        dishes_price: dishes_price,
+        drinks_price: drinks_price,
+        desserts_price: desserts_price,
+    }
+
+    let order = {
+        food: food,
+        price: price
+    }
+
+    return order
+
+}
+
+function confirm_screen(){
+
+    let confirm = document.getElementsByClassName("confirm-screen")[0]
+
+    confirm.style.display = "flex"
+
+    let scroll = document.getElementsByTagName("body")[0]
+    scroll.style.overflowY = "hidden"
+
+}
+
+
+function make_order(){
+    
+    let order = get_order()
+
+    let total = order.price.dishes_price+order.price.drinks_price+order.price.desserts_price
+
+    let message = "Olá, gostaria de fazer o pedido\n- Prato: "+ order.food.dishes+"\n- Bebida: "+ order.food.drinks+ "\n- Sobremesa: "+ order.food.desserts+ "\nTotal: R$ "+ total.toFixed(2)
     message = encodeURIComponent(message)
 
     let number = "84981517034"
@@ -36,7 +86,7 @@ function make_order(){
 
 function toggle_button(){
 
-    const button = document.querySelector('button')
+    const button = document.getElementsByClassName("footer-button")[0]
 
     for (i in dict){
         if(dict[i] == ""){

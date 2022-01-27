@@ -143,8 +143,8 @@
                         <h3>TOTAL</h3>
                         <h3>R$ 27,70</h3>
                     </div>
-                    <button class="confirm-content-button"> Tudo certo, pode pedir!</button>
-                    <button class="cancel-button">Cancelar</button>
+                    <button class="confirm-content-button" onclick="make_order()"> Tudo certo, pode pedir!</button>
+                    <button class="cancel-button" onclick="cancel_order()">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@
     </section>
 
     <footer>
-        <button disabled onclick="make_order()">
+        <button disabled onclick="confirm_screen()" class="footer-button">
             Selecione os 3 itens
             para fechar o pedido
         </button>
