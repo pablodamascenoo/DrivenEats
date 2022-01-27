@@ -6,21 +6,27 @@ let dict = {
     desserts: "",
 }
 
-function teste(){
+function make_order(){
     const regex = /\-?\d+\.\d+/g
 
-    let dishes_price = document.getElementById(dict.dishes).lastElementChild.getElementsByTagName('h5')[1].innerText
-    dishes_price = parseFloat(dishes_price.match(regex))
+    let dishes= document.getElementById(dict.dishes).lastElementChild.getElementsByTagName('h5')
+    let dishes_price = parseFloat(dishes[1].innerText.match(regex))
+    dishes = dishes[0].innerText
 
-    let drinks_price = document.getElementById(dict.drinks).lastElementChild.getElementsByTagName('h5')[1].innerText
-    drinks_price = parseFloat(drinks_price.match(regex))
+    let drinks = document.getElementById(dict.drinks).lastElementChild.getElementsByTagName('h5')
+    let drinks_price = parseFloat(drinks[1].innerText.match(regex))
+    drinks = drinks[0].innerText
 
-    let desserts_price = document.getElementById(dict.desserts).lastElementChild.getElementsByTagName('h5')[1].innerText
-    desserts_price = parseFloat(desserts_price.match(regex))
+    let desserts = document.getElementById(dict.desserts).lastElementChild.getElementsByTagName('h5')
+    let desserts_price = parseFloat(desserts[1].innerText.match(regex))
+    desserts = desserts[0].innerText
 
     let total = dishes_price+drinks_price+desserts_price
 
-    alert("Olá, gostaria de fazer o pedido\n- Prato: "+ dict.dishes+"\n- Bebida: "+ dict.drinks+ "\n- Sobremesa: "+ dict.desserts+ "\nTotal: R$ "+ total.toFixed(2))
+    let message = "Olá, gostaria de fazer o pedido\n- Prato: "+ dishes+"\n- Bebida: "+ drinks+ "\n- Sobremesa: "+ desserts+ "\nTotal: R$ "+ total.toFixed(2)
+    message = encodeURIComponent(message)
+
+    window.location.replace("https://wa.me/5584991175905?text="+message);
 
 }
 
