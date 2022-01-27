@@ -67,6 +67,34 @@ function confirm_screen(){
     let scroll = document.getElementsByTagName("body")[0]
     scroll.style.overflowY = "hidden"
 
+    let order = get_order()
+
+    let dishes_price = order.price.dishes_price.toFixed(2)
+    dishes_price = dishes_price.replace(/\./, ",")
+
+    let drinks_price = order.price.drinks_price.toFixed(2)
+    drinks_price = drinks_price.replace(/\./, ",")
+
+    let desserts_price = order.price.desserts_price.toFixed(2)
+    desserts_price = desserts_price.replace(/\./, ",")
+
+    let text_list = document.getElementsByClassName("confirm-content-text")
+
+    text_list[0].firstElementChild.innerText = order.food.dishes
+    text_list[0].lastElementChild.innerText = dishes_price
+
+    text_list[1].firstElementChild.innerText = order.food.drinks
+    text_list[1].lastElementChild.innerText = drinks_price
+
+    text_list[2].firstElementChild.innerText = order.food.desserts
+    text_list[2].lastElementChild.innerText = desserts_price
+
+    let total = order.price.dishes_price+order.price.drinks_price+order.price.desserts_price
+    total = total.toFixed(2)
+    total = total.replace(/\./, ",")
+
+    text_list[3].lastElementChild.innerText = total
+    
 }
 
 
