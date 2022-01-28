@@ -12,7 +12,6 @@ img{
     border-radius: 4px;
 }
 
-/* Text  */
 h3, h4, h5, p, button{
     font-family: 'Roboto', sans-serif;
 }
@@ -142,9 +141,8 @@ ion-icon{
 
 .confirm-green-box {
     color: white;
-    width: 90%;
+    width: 20rem;
     background: #50D074;
-    /* gap: 15px; */
     border-radius: 9px;
     max-height: inherit;
 }
