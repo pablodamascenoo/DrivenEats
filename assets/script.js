@@ -1,21 +1,14 @@
-let selected = ""
-
 let dict = {
     dishes: "",
     drinks: "",
     desserts: "",
 }
 
-
 function cancel_order(){
-
     let confirm = document.getElementsByClassName("confirm-screen")[0]
-
     confirm.style.display = "none"
-
     let scroll = document.getElementsByTagName("body")[0]
     scroll.style.overflowY = "initial"
-
 }
 
 function get_order(){
@@ -68,35 +61,32 @@ function confirm_screen(){
     scroll.style.overflowY = "hidden"
 
     let order = get_order()
+    let total = 0
 
-    let dishes_price = order.price.dishes_price.toFixed(2)
-    dishes_price = dishes_price.replace(/\./, ",")
+    for(i in order.price){
+        total += order.price[i]
+        order.price[i] = order.price[i].toFixed(2).replace(/\./, ",")
+    }
 
-    let drinks_price = order.price.drinks_price.toFixed(2)
-    drinks_price = drinks_price.replace(/\./, ",")
-
-    let desserts_price = order.price.desserts_price.toFixed(2)
-    desserts_price = desserts_price.replace(/\./, ",")
-
-    let text_list = document.getElementsByClassName("confirm-content-text")
-
-    text_list[0].firstElementChild.innerText = order.food.dishes
-    text_list[0].lastElementChild.innerText = dishes_price
-
-    text_list[1].firstElementChild.innerText = order.food.drinks
-    text_list[1].lastElementChild.innerText = drinks_price
-
-    text_list[2].firstElementChild.innerText = order.food.desserts
-    text_list[2].lastElementChild.innerText = desserts_price
-
-    let total = order.price.dishes_price+order.price.drinks_price+order.price.desserts_price
-    total = total.toFixed(2)
-    total = total.replace(/\./, ",")
-
-    text_list[3].lastElementChild.innerText = "R$ "+total
+    total = total.toFixed(2).replace(/\./, ",")
     
-}
+    let text_list = document.getElementsByClassName("confirm-content-text")
+    text_list[3].lastElementChild.innerText = "R$ "+total
 
+    for(i in order){
+        let count=0
+        for(x in order[i]){
+            if(i == "food"){
+                text_list[count].firstElementChild.innerText = order[i][x]
+                count++
+            }
+            if(i == "price"){
+                text_list[count].lastElementChild.innerText = order[i][x]
+                count++
+            }
+        }
+    } 
+}
 
 function make_order(){
     
@@ -104,18 +94,17 @@ function make_order(){
 
     let total = order.price.dishes_price+order.price.drinks_price+order.price.desserts_price
 
-    let message = "Olá, gostaria de fazer o pedido\n- Prato: "+ order.food.dishes+"\n- Bebida: "+ order.food.drinks+ "\n- Sobremesa: "+ order.food.desserts+ "\nTotal: R$ "+ total.toFixed(2)
+    let message = `Olá, gostaria de fazer o pedido\n- Prato: ${order.food.dishes}+\n- Bebida: ${order.food.drinks}\n- Sobremesa: ${order.food.desserts}\nTotal: R$ ${total.toFixed(2)}`    
     message = encodeURIComponent(message)
 
     let number = "84981517034"
-    window.location.replace("https://wa.me/55"+ number +"?text="+message);
+    window.location.replace(`https://wa.me/55${number}?text=${message}`);
 
 }
 
 function toggle_button(){
 
     const button = document.getElementsByClassName("footer-button")[0]
-
     for (i in dict){
         if(dict[i] == ""){
             button.disabled = true
@@ -129,19 +118,17 @@ function toggle_button(){
 }
 
 function change_options(obj){
-
     for (let i in dict){
-        if (document.getElementById(obj).parentElement.id == i){
-            dict[i] = obj
+        if (obj.parentElement.id == i){
+            dict[i] = obj.id
         }
     }
 
 }
 
-function check_options(obj){
-    
+function check_options(obj){ 
     for (let i in dict){
-        if (document.getElementById(obj).parentElement.id == i){
+        if (obj.parentElement.id == i){
             if(dict[i] != ""){
                 return true
             }
@@ -151,40 +138,28 @@ function check_options(obj){
 }
 
 function select(obj){
-
-    const food_id = document.getElementById(obj)
-
-    if(dict[food_id.parentElement.id] == obj){
-        let food_div = food_id
-        food_div.lastElementChild.lastElementChild.style.display = "none"
-        food_div.style.boxShadow = "none" 
+    if(obj.classList.contains("checked")){
+        let food_div = obj
+        food_div.classList.toggle("checked")
         for (let i in dict){
-            if(food_id.parentElement.id == i){
+            if(obj.parentElement.id == i){
                 dict[i] = ""
             }
         }
-        selected = ""
         toggle_button()
     }
-
-    else if(selected != obj && check_options(obj)){
-        let food_div = document.getElementById(dict[food_id.parentElement.id])
+    else if(check_options(obj)){
+        let food_div = document.getElementById(dict[obj.parentElement.id])
         change_options(obj)
-        food_div.style.boxShadow = "none"
-        food_div.lastElementChild.lastElementChild.style.display = "none"
-        food_div = food_id
-        food_div.lastElementChild.lastElementChild.style.display = "block"
-        food_div.style.boxShadow = "0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F"
-        selected = obj
+        food_div.classList.toggle("checked")
+        food_div = obj
+        food_div.classList.toggle("checked")
     }
-
     else {
         change_options(obj)
-        let food_div = food_id
-        food_div.lastElementChild.lastElementChild.style.display = "block"
-        food_div.style.boxShadow = "0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F"
+        let food_div = obj
+        food_div.classList.add("checked")
         toggle_button()
-        selected = obj
     }
-    
 }
+
