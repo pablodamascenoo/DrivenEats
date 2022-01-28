@@ -5,10 +5,8 @@ let dict = {
 }
 
 function cancel_order(){
-    let confirm = document.getElementsByClassName("confirm-screen")[0]
-    confirm.style.display = "none"
-    let scroll = document.getElementsByTagName("body")[0]
-    scroll.style.overflowY = "initial"
+    document.getElementsByClassName("confirm-screen")[0].classList.toggle("confirm-screen-enabled")
+    document.getElementsByTagName("body")[0].classList.toggle("scroll-hidden")
 }
 
 function get_order(){
@@ -53,12 +51,8 @@ function get_order(){
 
 function confirm_screen(){
 
-    let confirm = document.getElementsByClassName("confirm-screen")[0]
-
-    confirm.style.display = "flex"
-
-    let scroll = document.getElementsByTagName("body")[0]
-    scroll.style.overflowY = "hidden"
+    document.getElementsByClassName("confirm-screen")[0].classList.toggle("confirm-screen-enabled")
+    document.getElementsByTagName("body")[0].classList.toggle("scroll-hidden")
 
     let order = get_order()
     let total = 0

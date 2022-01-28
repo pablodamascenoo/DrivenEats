@@ -231,3 +231,11 @@ footer > button:enabled{
 .checked > .food_content> ion-icon{
     display: block;
 }
+
+.scroll-hidden{
+    overflow-y: hidden;
+}
+
+.confirm-screen-enabled{
+    display: flex
+}
