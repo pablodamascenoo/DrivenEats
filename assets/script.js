@@ -91,7 +91,7 @@ function make_order(){
 
     let total = order.price.dishes_price+order.price.drinks_price+order.price.desserts_price
 
-    let message = `Olá, gostaria de fazer o pedido\n- Prato: ${order.food.dishes}+\n- Bebida: ${order.food.drinks}\n- Sobremesa: ${order.food.desserts}\nTotal: R$ ${total.toFixed(2)}\n\nNome: ${nome_usuario}\nEndereço: ${endereco}`    
+    let message = `Olá, gostaria de fazer o pedido:\n- Prato: ${order.food.dishes}\n- Bebida: ${order.food.drinks}\n- Sobremesa: ${order.food.desserts}\nTotal: R$ ${total.toFixed(2)}\n\nNome: ${nome_usuario}\nEndereço: ${endereco}`    
     message = encodeURIComponent(message)
 
     let number = "84981517034"
